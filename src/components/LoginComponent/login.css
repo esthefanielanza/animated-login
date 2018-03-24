@@ -30,27 +30,6 @@
     font-style: bold;
 }
 
-.login__input {
-    margin-bottom: 20px;
-    height: 30px;
-    padding: 0px 0px 0px 0px;
-    background: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 1px dashed #83A4C5;
-    width: 275px;
-    overflow: hidden;
-    resize:none;
-    height:20px;
-    color: white;
-}
-
-.login__form-label {
-    font-size: 11px;
-    color: rgb(101, 199, 170);
-    margin-bottom: 3px;
-}
-
 .login__botton-bar {
    padding: 4px;
     font-size: 12px;

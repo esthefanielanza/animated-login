@@ -1,0 +1,14 @@
+.input {
+    margin-bottom: 20px;
+    height: 30px;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    overflow: hidden;
+    resize:none;
+    height:20px;
+    color: white;
+}
