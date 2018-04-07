@@ -27,7 +27,7 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    font-style: bold;
+    box-shadow: 0px 0px 0px 8px #E880AC inset;
 }
 
 .login__botton-bar {
@@ -36,4 +36,20 @@
    text-align: right;
    background-color:#9F4580;
    color: white;
+}
+
+.idle {
+	animation: MoveUpDown 0.7s linear infinite;
+	position: relative;
+	left: 0;
+	bottom:0;
+}
+
+@keyframes MoveUpDown {
+	0%, 100% {
+		bottom: 0;
+	}
+	50% {
+		bottom: 5px;
+	}
 }

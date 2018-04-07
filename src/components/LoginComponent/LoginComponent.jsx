@@ -19,15 +19,17 @@ export default class LoginComponent extends React.Component {
 		const antennaColor='#E880AC';
 
 		return( <g id="body">
-			<path fill={bodyColor} d="M238.445,106.195l31.9-23.928c0,0,12.063,131.539-41.049,108.824
-				c-53.111-22.713-33.475-56.059-33.475-56.059L238.445,106.195z"/>
-			<path fill={bodyColor} transform={`translate(0, 50`} d="M51.099,112.029L24.895,87.104c0,0-13.907,131.355,39.519,109.389
-				c53.424-21.967,34.258-55.584,34.258-55.584L51.099,112.029z"/>
 			<path fill={bodyColor} d="M102.369,219.074L86.744,266.99c0,0,61.646,38.543,117.59-3.123l-16.668-44.793H102.369z"/>
-			<path fill={bodyColor} d="M154.667,69.102c-8-14.77-2-26.102,3-28.77c5-2.666,9.501,4.668,9.501,4.668s-13.751,4-4.459,21.332
+			<g id="head">
+				<path fill={bodyColor} d="M238.445,106.195l31.9-23.928c0,0,12.063,131.539-41.049,108.824
+					c-53.111-22.713-33.475-56.059-33.475-56.059L238.445,106.195z"/>
+				<path fill={bodyColor} d="M51.099,112.029L24.895,87.104c0,0-13.907,131.355,39.519,109.389
+					c53.424-21.967,34.258-55.584,34.258-55.584L51.099,112.029z"/>
+				<ellipse fill={antennaColor} cx="170.872" cy="38.854" rx="11.205" ry="10.813"/>
+				<path fill={bodyColor} d="M154.667,69.102c-8-14.77-2-26.102,3-28.77c5-2.666,9.501,4.668,9.501,4.668s-13.751,4-4.459,21.332
 		 		C172,83.666,154.667,69.102,154.667,69.102"/>
-			<ellipse transform="matrix(0.9996 -0.029 0.029 0.9996 -4.1973 4.2882)" fill={headColor} cx="143.994" cy="145.098" rx="96.166" ry="84.98"/>
-			<ellipse fill={antennaColor} cx="170.872" cy="38.854" rx="11.205" ry="10.813"/>
+				<ellipse transform="matrix(0.9996 -0.029 0.029 0.9996 -4.1973 4.2882)" fill={headColor} cx="143.994" cy="145.098" rx="96.166" ry="84.98"/>
+			</g>
 		</g>);
 	}
 
@@ -53,10 +55,10 @@ export default class LoginComponent extends React.Component {
 	renderEyes() {
 		const eyesStart = this.state.focus ? -8 : 0;
 		const shouldMoveEyes = eyesStart + this.state.username.length/2;
-		const moveEyes = shouldMoveEyes < 8 ? shouldMoveEyes : 8;
+		const moveEyes = shouldMoveEyes < 6 ? shouldMoveEyes : 6;
 		return( <g id="eyes">
-			<ellipse fill="#333333" transform={`translate(${moveEyes},8)`} cx={103} cy={145.666} rx={11.667} ry={22.334}/>
-			<ellipse fill="#333333" transform={`translate(${moveEyes},8)`} cx="193.333" cy="147.332" rx="11.667" ry="22.334"/>
+			<ellipse fill="#333333" transform={`translate(${this.state.focus ? moveEyes : 0},${this.state.focus ? 11 : 7})`} cx={103} cy={145.666} rx={11.667} ry={22.334}/>
+			<ellipse fill="#333333" transform={`translate(${this.state.focus ? moveEyes : 0},${this.state.focus ? 11 : 7})`} cx="193.333" cy="147.332" rx="11.667" ry="22.334"/>
 		</g>
 		);
 	}
@@ -79,7 +81,7 @@ export default class LoginComponent extends React.Component {
 			<div style={{ height: '100vh' }}>
 				<div className={CN}>
 					<div className={`${CN}__avatar`}>
-						<div style={{marginTop: '30px'}}>{this.renderSvg()}</div>
+						<div className='idle' style={{marginTop: '30px'}}>{this.renderSvg()}</div>
 					</div>
 					<div className={`${CN}__login-fields`}>
 					<TextInputComponent
