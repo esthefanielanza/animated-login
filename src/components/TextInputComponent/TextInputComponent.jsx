@@ -11,7 +11,7 @@ export default class TextInputComponent extends React.Component {
 
 	render() {
 		const input = this.props.labelStyle || {
-			marginBottom: '20px',
+			marginBottom: '10px',
 			height: '30px',
 			padding: '0px',
 			background: 'transparent',
@@ -29,15 +29,15 @@ export default class TextInputComponent extends React.Component {
 			color: 'rgb(101, 199, 170)',
 			marginBottom: '3px',
 		};
-		labelStyle.display = (this.props.value || this.state.float) ? 'block' : 'none';
+		labelStyle.visibility = (this.props.value || this.state.float) ? 'visible' : 'hidden';
 		return (
 			<div className={'form-field'}>
 				<div className={'form-label'} style={labelStyle}>{this.props.name}</div>
 				<input type={this.props.type} name={this.props.name}
 					placeholder={this.props.float ? '' : this.props.name}
 					style={input}
-					onFocus={() => this.setState({ float: true })}
-					onBlur={() => this.setState({ float: false })}
+					onFocus={() => { this.setState({ float: true }); this.props.onFocus(); }}
+					onBlur={() => { this.setState({ float: false }); this.props.onBlur(); }}
 					onChange={(e) => this.props.onChange(e.target.value)} />
 			</div>
 		);
